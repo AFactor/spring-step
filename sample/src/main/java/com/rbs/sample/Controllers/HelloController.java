@@ -18,6 +18,9 @@ public class HelloController {
     @Value("${weather.path}")
     private String weatherPath;
 
+    @Value("${lending.ceedata.path}")
+    private String ceeDataPath;
+
     @GetMapping("/hello")
     public SampleResponse index(@RequestParam(value="name") String name, 
                                 @RequestParam(value="id") int id){
@@ -39,5 +42,14 @@ public class HelloController {
        
         WeatherModel weather = restTemplate.getForObject(weatherPath+ city, WeatherModel.class);
         return weather;
+    }
+
+    @GetMapping("/hello/lenidng/ceedata/{id}")
+    public Activity GetAreaDetails(@PathVariable String id)  {
+        
+        RestTemplate restTemplate = new RestTemplate();
+       
+        Activity activity = restTemplate.getForObject(ceeDataPath+ id, Activity.class);
+        return activity;
     }
 }
