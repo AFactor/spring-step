@@ -50,6 +50,7 @@ public class HelloController {
         RestTemplate restTemplate = new RestTemplate();
        
         Activity activity = restTemplate.getForObject(ceeDataPath+ id, Activity.class);
+        activity.ceeId = "Cee Id came from spring boot " + activity.ceeId;
         return activity;
     }
 }
