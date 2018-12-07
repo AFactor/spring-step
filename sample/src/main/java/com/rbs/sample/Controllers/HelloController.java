@@ -45,11 +45,11 @@ public class HelloController {
         return weather;
     }
 
-    @GetMapping("/hello/lenidng/ceedata/{id}")
+    @GetMapping("/hello/lending/ceedata/{id}")
     public Activity GetCeeDataDetails(@PathVariable String id)  {
         
         RestTemplate restTemplate = new RestTemplate();
-       
+        System.out.println("inside Cee");
         Activity activity = restTemplate.getForObject(ceeDataPath+ id, Activity.class);
         //activity.ceeId = "Cee Id came from spring boot " + activity.ceeId;
         return activity;
