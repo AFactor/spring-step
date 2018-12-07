@@ -1,5 +1,6 @@
 package com.rbs.sample.Controllers;
 
+import com.rbs.sample.Models.Activity;
 import com.rbs.sample.Models.SampleResponse;
 import com.rbs.sample.Models.WeatherModel;
 
@@ -45,12 +46,12 @@ public class HelloController {
     }
 
     @GetMapping("/hello/lenidng/ceedata/{id}")
-    public Activity GetAreaDetails(@PathVariable String id)  {
+    public Activity GetCeeDataDetails(@PathVariable String id)  {
         
         RestTemplate restTemplate = new RestTemplate();
        
         Activity activity = restTemplate.getForObject(ceeDataPath+ id, Activity.class);
-        activity.ceeId = "Cee Id came from spring boot " + activity.ceeId;
+        //activity.ceeId = "Cee Id came from spring boot " + activity.ceeId;
         return activity;
     }
 }
