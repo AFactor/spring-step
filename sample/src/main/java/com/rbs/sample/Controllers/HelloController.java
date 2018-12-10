@@ -19,7 +19,6 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 
 
 
@@ -55,9 +54,8 @@ public class HelloController {
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders requestHeaders = new HttpHeaders();
         requestHeaders.add("Cookie", "JSESSIONID=");
-        HttpEntity requestEntity = new HttpEntity(null, requestHeaders);
+        HttpEntity<?> requestEntity = new HttpEntity<>(requestHeaders);
         ResponseEntity<WeatherModel> w =  restTemplate.exchange(weatherPath + city, HttpMethod.GET, requestEntity, WeatherModel.class);
-       // WeatherModel weather = restTemplate.getForObject(weatherPath+ city, WeatherModel.class);
         return w.getBody();
     }
 
@@ -69,10 +67,10 @@ public class HelloController {
         System.out.println("inside Cee");
         HttpHeaders requestHeaders = new HttpHeaders();
         requestHeaders.add("Cookie", samlCookie);
-        HttpEntity requestEntity = new HttpEntity(null, requestHeaders);
+        HttpEntity<?> requestEntity = new HttpEntity<>(requestHeaders);
         ResponseEntity<Activity> act = restTemplate.exchange(ceeDataPath+ id, HttpMethod.GET, requestEntity, Activity.class);
-        //Activity activity = restTemplate.getForObject(ceeDataPath+ id, Activity.class);
-        //activity.ceeId = "Cee Id came from spring boot " + activity.ceeId;
+        //changing some value to show basic transformation. Chnage CeeId.
+        act.getBody().setCeeId( "Cee Id came from spring boot " + act.getBody().getCeeId());
         return act.getBody();
     }
 

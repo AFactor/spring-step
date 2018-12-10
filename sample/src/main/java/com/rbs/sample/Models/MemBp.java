@@ -8,9 +8,9 @@ public class MemBp
 
     private String[] owner;
 
-    private String bpKey;
+    private Integer bpKey;
 
-    private String bpObjId;
+    private Integer bpObjId;
 
     public String getIsJoint ()
     {
@@ -44,22 +44,22 @@ public class MemBp
         this.owner = owner;
     }
 
-    public String getBpKey ()
+    public Integer getBpKey ()
     {
         return bpKey;
     }
 
-    public void setBpKey (String bpKey)
+    public void setBpKey (Integer bpKey)
     {
         this.bpKey = bpKey;
     }
 
-    public String getBpObjId ()
+    public Integer getBpObjId ()
     {
         return bpObjId;
     }
 
-    public void setBpObjId (String bpObjId)
+    public void setBpObjId (Integer bpObjId)
     {
         this.bpObjId = bpObjId;
     }

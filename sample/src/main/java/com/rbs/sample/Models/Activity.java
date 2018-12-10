@@ -18,10 +18,16 @@ public class Activity
         return ceeId;
     }
 
+    public void setCeeId (Integer ceeId)
+    {
+        this.ceeId = ceeId.toString();
+    }
+
     public void setCeeId (String ceeId)
     {
         this.ceeId = ceeId;
     }
+
 
     public MemBp[] getMemBp ()
     {
