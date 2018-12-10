@@ -20,7 +20,7 @@ public class Activity
 
     public void setCeeId (Integer ceeId)
     {
-        this.ceeId = ceeId.toString();
+        this.ceeId = String.valueOf(ceeId);
     }
 
     public void setCeeId (String ceeId)
