@@ -33,6 +33,8 @@ public class HelloController {
 
     @Value("${cookie}")
     private String samlCookie;
+
+    private RestTemplate restTemplate = new RestTemplate();
     
     @GetMapping("/hello")
     public SampleResponse index(@RequestParam(value="name") String name, 
@@ -50,22 +52,18 @@ public class HelloController {
   
     @GetMapping("/hello/area/{city}")
     public WeatherModel GetAreaDetails(@PathVariable String city)  {
-        
-        RestTemplate restTemplate = new RestTemplate();
-        HttpHeaders requestHeaders = new HttpHeaders();
-        requestHeaders.add("Cookie", "JSESSIONID=");
-        HttpEntity<?> requestEntity = new HttpEntity<>(requestHeaders);
-        ResponseEntity<WeatherModel> w =  restTemplate.exchange(weatherPath + city, HttpMethod.GET, requestEntity, WeatherModel.class);
-        return w.getBody();
+        WeatherModel w =  restTemplate.getForObject(weatherPath + city,WeatherModel.class);
+        return w;
     }
 
     @GetMapping("/hello/lending/ceedata/{id}")
     public Activity GetCeeDataDetails(@PathVariable String id)  {
         
-        RestTemplate restTemplate = new RestTemplate();
+        
 
         System.out.println("inside Cee");
         HttpHeaders requestHeaders = new HttpHeaders();
+        // requestHeaders.add("Cookie", samlCookie);
         requestHeaders.add("Cookie", samlCookie);
         HttpEntity<?> requestEntity = new HttpEntity<>(requestHeaders);
         ResponseEntity<Activity> act = restTemplate.exchange(ceeDataPath+ id, HttpMethod.GET, requestEntity, Activity.class);

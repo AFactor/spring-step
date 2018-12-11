@@ -1,0 +1,30 @@
+{
+    "run": {
+        "default": "",
+        "items": [
+            {
+                "name": "sample",
+                "projectName": "sample",
+                "workingDirectory": "/Users/avik__000/Documents/spring sample step by step/sample",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    },
+    "debug": {
+        "default": "",
+        "items": [
+            {
+                "name": "sample",
+                "projectName": "sample",
+                "workingDirectory": "/Users/avik__000/Documents/spring sample step by step/sample",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    }
+}
