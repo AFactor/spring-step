@@ -7,12 +7,20 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Activity
 {
     
-
+    private String corelationId;
     private String ceeId;
 
     private MemBp[] memBp;
 
     
+    public String getCorelationId(){
+        return corelationId;
+    }
+
+    public void setCorelationId(String value){
+         corelationId=value;
+    }
+
     public String getCeeId ()
     {
         return ceeId;
