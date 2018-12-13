@@ -46,5 +46,6 @@ public class DemoApplicationTests {
 		
 		myobjectA = helloTest.GetCeeDataDetails("123","CoId-1");
 		org.junit.Assert.assertEquals(expectedCeeId, myobjectA.getCeeId());
+		org.junit.Assert.assertEquals("CoId-1", myobjectA.getCorelationId());
 	}
 }
